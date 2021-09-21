@@ -6,29 +6,86 @@ from typing import List
 
 
 def convert_to_absolute(number: float) -> float:
-    return 0
+    if number <0:
+        number*=-1
+    return number
 
 
 def use_prefixes() -> List[str]:
     prefixes, suffixe = 'JKLMNOPQ', 'ack'
-
-    return [""]
+    noms=''
+    for letter in prefixes:
+        noms=noms+letter+suffixe+','
+    return [noms]
 
 
 def prime_integer_summation() -> int:
     return 0
+    nb_primeNumber=0
+    number=2
+    summation=0
+    while nb_primeNumber<=100:
+        for i in range(2,number):
+            if number%i==0:
+                number+=1
+                continue
+    return summation
 
 
 def factorial(number: int) -> int:
-    return 0
+    somme=1
+    for i in range(1,number+1):
+        somme*=i
+    return somme
 
 
 def use_continue() -> None:
+    for i in range(1,11):
+        if i==5:
+            continue
+        else:
+            print(i)
     pass
 
 
 def verify_ages(groups: List[List[int]]) -> List[bool]:
-    return []
+    listeDacceptance=[]
+    for personnes in groups:
+        if len(personnes)>3 and len(personnes)<=10:
+            listeDacceptance.append(True)
+        else:
+            listeDacceptance.append(False)
+        print(listeDacceptance)
+
+    i=0
+    for personnes in groups:
+        if listeDacceptance[i]==False:
+                continue
+        for age in personnes:
+            if age==25:
+                listeDacceptance[i]=True
+        i+=1
+    i=0
+    for personnes in groups:
+        if listeDacceptance[i]==True:
+                continue
+        for age in personnes:
+            if age<18:
+                listeDacceptance[i]=False
+        i+=1
+
+    i=0
+    for personnes in groups:
+        if listeDacceptance[i]==True:
+                continue
+        for age in personnes:
+            if age==50:
+                for age in personnes:
+                    if age>70:
+                        listeDacceptance[i]=False
+        i+=1
+
+    return listeDacceptance
 
 
 def main() -> None:
