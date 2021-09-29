@@ -16,6 +16,7 @@ def use_prefixes() -> List[str]:
     noms=''
     for letter in prefixes:
         noms=noms+letter+suffixe+','
+        
     return [noms]
 
 
